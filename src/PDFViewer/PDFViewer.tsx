@@ -34,8 +34,6 @@ const PDFViewer = (props: TPDFViewerProps) => {
     const [pagesTotal, setPagesTotal] = useState(0)
     const [pagesCompleted, setPagesCompleted] = useState(0)
     const pdfRef = useRef<HTMLDivElement>(null)
-    const [objectsFound, setObjectsFound] = useState<HTMLCollection>()
-    const [load, setLoad] = useState(false)
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const [pagesProps, setPagesProps] = useState<TPagesProps[]>([])
 
@@ -48,16 +46,6 @@ const PDFViewer = (props: TPDFViewerProps) => {
             setPagesProps(current => [...current, {height: page.view[3], widht: page.view[2]}])
         }
     };
-
-    useEffect(() => {
-        if (load) {
-            const objects = pdfRef.current?.getElementsByTagName("mark")
-            if (objects?.length !== objectsFound?.length) {
-                setObjectsFound(objects)
-            }
-            setLoad(false)
-        }
-    }, [objectsFound?.length, load]);
 
 
     return (
