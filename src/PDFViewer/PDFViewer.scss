@@ -1,0 +1,19 @@
+
+.pdf-viewer-spin-cont {
+  position: unset !important;
+}
+
+.pdf-viewer-cont {
+  overflow: auto;
+  padding: 5px;
+}
+
+.react-pdf__Page{
+  margin: 2px;
+  display: inline-block;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 6px 2px;
+}
+
+.react-pdf__Page__textContent {
+  overflow: unset;
+}
